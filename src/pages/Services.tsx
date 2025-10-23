@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ServiceCard } from "@/components/ServiceCard";
-import { ContactForm } from "@/components/ContactForm";
+import { Link } from "react-router-dom";
 import {
   Sparkles,
   Zap,
@@ -14,8 +14,6 @@ import {
   Twitter,
 } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import heroImage from "@/assets/hero-bg.jpg";
 import logoImage from "@/assets/product-folks-logo.png";
 
 const services = [
@@ -57,16 +55,8 @@ const services = [
   },
 ];
 
-const Index = () => {
+const Services = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setMobileMenuOpen(false);
-    }
-  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -74,13 +64,13 @@ const Index = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border shadow-custom-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
+            <Link to="/" className="flex items-center">
               <img 
                 src={logoImage} 
                 alt="Product Folks Logo" 
                 className="h-12 sm:h-16 w-auto"
               />
-            </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
@@ -92,7 +82,7 @@ const Index = () => {
               </Link>
               <Link
                 to="/services"
-                className="text-foreground hover:text-primary transition-smooth"
+                className="text-primary font-medium transition-smooth"
               >
                 Services
               </Link>
@@ -135,7 +125,7 @@ const Index = () => {
               <Link
                 to="/services"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block w-full text-left py-2 text-foreground hover:text-primary transition-smooth"
+                className="block w-full text-left py-2 text-primary font-medium transition-smooth"
               >
                 Services
               </Link>
@@ -154,72 +144,13 @@ const Index = () => {
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section
-        className="relative min-h-screen flex items-center justify-center pt-16"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${heroImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 animate-fade-in">
-            Unlock Your Business Potential with{" "}
-            <span className="bg-gradient-to-r from-primary-glow to-accent bg-clip-text text-transparent">
-              Expert Product Management
-            </span>
-          </h1>
-          <p className="text-xl sm:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
-            Empowering organizations to thrive in the era of AI and digital
-            transformation.
-          </p>
-          <Link to="/contact">
-            <Button
-              size="lg"
-              className="h-14 px-8 text-lg font-semibold shadow-custom-lg hover:shadow-custom-md"
-            >
-              Contact Us
-            </Button>
-          </Link>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="py-20 lg:py-32 bg-secondary/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-              About Product Folks
-            </h2>
-            <div className="space-y-6 text-lg text-foreground/80 leading-relaxed">
-              <p>
-                Product Folks is a European Product Management consultancy
-                dedicated to accelerating digital transformation and AI adoption
-                for businesses of all sizes.
-              </p>
-              <p>
-                With years of hands-on experience in product strategy,
-                leadership, and delivery, our team partners with you to drive
-                growth, improve processes, and cultivate lasting impact.
-              </p>
-              <p>
-                We are passionate about mentoring and upskilling the next
-                generation of product leaders—empowering teams to excel in
-                today's dynamic, AI-enhanced business landscape.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Services Section */}
-      <section id="services" className="py-20 lg:py-32">
+      <section className="pt-32 pb-20 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
               Our Services
-            </h2>
+            </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Comprehensive product management solutions tailored to your needs
             </p>
@@ -234,22 +165,13 @@ const Index = () => {
               />
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-20 lg:py-32 bg-secondary/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-              Contact Us
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Ready to discuss your next product challenge or digital
-              transformation journey? Let's connect.
-            </p>
+          <div className="mt-16 text-center">
+            <Link to="/contact">
+              <Button size="lg" className="h-14 px-8 text-lg font-semibold">
+                Get Started
+              </Button>
+            </Link>
           </div>
-          <ContactForm />
         </div>
       </section>
 
@@ -285,4 +207,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Services;
