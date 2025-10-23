@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import heroImage from "@/assets/hero-bg.jpg";
+import logoImage from "@/assets/product-folks-logo.png";
 
 const services = [
   {
@@ -73,9 +74,11 @@ const Index = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Product Folks
-              </h1>
+              <img 
+                src={logoImage} 
+                alt="Product Folks Logo" 
+                className="h-8 sm:h-10 w-auto"
+              />
             </div>
 
             {/* Desktop Navigation */}
