@@ -75,6 +75,12 @@ const Services = () => {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               <Link
+                to="/"
+                className="text-foreground hover:text-primary transition-smooth"
+              >
+                Home
+              </Link>
+              <Link
                 to="/about"
                 className="text-foreground hover:text-primary transition-smooth"
               >
@@ -115,6 +121,13 @@ const Services = () => {
         {mobileMenuOpen && (
           <div className="md:hidden border-t border-border bg-background">
             <div className="px-4 py-4 space-y-3">
+              <Link
+                to="/"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block w-full text-left py-2 text-foreground hover:text-primary transition-smooth"
+              >
+                Home
+              </Link>
               <Link
                 to="/about"
                 onClick={() => setMobileMenuOpen(false)}
