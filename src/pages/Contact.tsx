@@ -120,17 +120,6 @@ const Contact = () => {
             </p>
           </div>
           <ContactForm />
-          <div className="mt-8 text-center">
-            <p className="text-muted-foreground">
-              Or email us at{" "}
-              <a
-                href="mailto:info@productfolks.eu"
-                className="text-primary hover:underline"
-              >
-                info@productfolks.eu
-              </a>
-            </p>
-          </div>
         </div>
       </section>
 
